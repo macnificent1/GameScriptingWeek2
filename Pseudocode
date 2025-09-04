@@ -121,3 +121,29 @@ WHILE ContinueAnswer == TO 'Y' DO
 END WHILE
 
 END
+
+Activity 5
+_______________
+
+intialize countLeft int
+intialize countRight int
+initialize i int
+
+countLeft = 0
+countRight = 0
+
+  FOR i FROM 1 TO 10
+    initialize  randomNumber int
+    randomNumber = GENERATE_RANDOM_NUMBER()
+
+    IF randomNumber MOD 2 = 0 THEN
+      PRINT "RIGHT"
+      INCREMENT countRight
+    ELSE
+      PRINT "LEFT"
+      INCREMENT countLeft
+    END IF
+  END FOR
+
+  PRINT "Total LEFT: ", countLeft
+  PRINT "Total RIGHT: ", countRight
