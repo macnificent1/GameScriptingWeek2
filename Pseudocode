@@ -1,1 +1,123 @@
+Activity 1
+_________________________
 
+FUNCTION ConvertToUppercase()
+
+    ask user input "Enter a phrase: "
+    SET userInput TO GET_INPUT()
+
+    SET uppercaseText TO TO_UPPERCASE(userInput)
+
+    PRINT uppercaseText
+END FUNCTION
+
+
+Activity 2
+______________________
+
+    FUNCTION GetNumber(prompt_message)
+        initialize number AS REAL
+        initialize valid_input AS BOOLEAN = FALSE
+
+        WHILE NOT valid_input
+            DISPLAY prompt_message
+            READ input_string
+
+            IF IS_NUMERIC(input_string) THEN
+                SET number = CONVERT_TO_REAL(input_string)
+                SET is_valid_input = TRUE
+            ELSE
+                DISPLAY "Please enter a number."
+            END IF
+        END WHILE
+
+        RETURN number
+    END FUNCTION
+
+    SET num1 = GetNumber("Enter the first number:")
+
+    SET num2 = GetNumber("Enter the second number:")
+
+    SET sum = num1 + num2
+
+    DISPLAY "The sum of " + num1 + " and " + num2 + " is: " + sum
+
+    END
+
+
+Activity 3
+___________________
+
+SET totalSum = 0
+
+LOOP
+
+  DISPLAY "Please Enter a Number: "
+  GET userInput
+
+  IF userInput IS NOT A VALID NUMBER THEN
+    DISPLAY "Invalid input. Please enter a valid number."
+    CONTINUE LOOP
+    END IF
+    
+  SET currentNumber = CONVERT userInput TO NUMBER
+
+    SET totalSum = totalSum + currentNumber
+
+    DISPLAY "Another number? (y/n) "
+    GET continueAnswer
+
+    WHILE continueAnswer IS NOT "y" AND continueAnswer IS NOT "n" DO
+      DISPLAY "Invalid input. Please enter 'y' or 'n'."
+      GET continueAnswer
+    END WHILE
+
+    IF continueAnswer IS "n" THEN
+      BREAK LOOP
+    END IF
+  END LOOP
+
+  DISPLAY "Output: ", totalSum
+
+
+Activity 4
+___________________
+
+START
+
+intialize continueAnswer
+SET continueAnswer = 'Y'
+
+WHILE ContinueAnswer == TO 'Y' DO
+    Initialize maxNumber 
+    Initialize randomNumber 
+    Inialize validInput
+
+    SET validInput = FALSE
+    WHILE validInput IS FALSE DO
+        DISPLAY "Enter the max number:"
+        READ maxNumber
+        IF maxNumber IS A WHOLE NUMBER AND maxNumber IS GREATER THAN OR EQUAL TO 0 THEN
+            SET validInput = TRUE
+        ELSE
+            DISPLAY "Invalid input. Please enter a positive whole number."
+        END IF
+    END WHILE
+
+    GENERATE randomNumber BETWEEN 0 AND maxNumber
+    DISPLAY "Output: " + randomNumber
+
+    SET validInput = FALSE
+    WHILE validInput IS FALSE DO
+        DISPLAY "Do you want to continue (y/n)?"
+        READ continueAnswer
+        CONVERT continueAnswer TO UPPERCASE
+        IF continueAnswer IS EQUAL TO 'Y' OR playAgain IS EQUAL TO 'N' THEN
+            SET validInput = TRUE
+        ELSE
+            DISPLAY "Invalid input. Please enter 'y' or 'n'."
+        END IF
+    END WHILE
+END WHILE
+
+END
